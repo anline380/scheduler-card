@@ -124,14 +124,12 @@ export class SchedulerTimeslotEditor extends LitElement {
               idx="${i}"
             >
             </div>`}
+
           ${slot.actions.length
-          ? actionText && (slotWidth > textWidth / 3 || slotWidth > 50) && slotWidth > 30
-            ? html`<span style="margin-left: ${leftMargin}px; margin-right: ${rightMargin}px">${actionText}</span>`
-            : slotWidth > 16
-              ? html`<ha-icon icon="${computeActionIcon(slot.actions[0], this.config.customize)}"></ha-icon>`
-              : ''
-          : ''
-        }
+            ? html`<ha-icon icon="${computeActionIcon(slot.actions[0], this.config.customize)}"></ha-icon>`
+            : ''
+          }
+
         </div>
         ${i < (slots.length - 1) && slot.stop ? html`
         <div idx="${i}" class="handle ${this.selectedSlot == (i + 1) || this.selectedSlot == i ? '' : 'hidden'} ${nextSlot && !nextSlot.stop ? 'center' : ''}">
